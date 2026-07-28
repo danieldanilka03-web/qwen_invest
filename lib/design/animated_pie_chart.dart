@@ -26,7 +26,7 @@ class AnimatedPieChart extends StatefulWidget {
 }
 
 class _AnimatedPieChartState extends State<AnimatedPieChart> with SingleTickerProviderStateMixin {
-  int _hoveredIndex = -1;
+  final int _hoveredIndex = -1;
   late AnimationController _controller;
   late Animation<double> _animation;
 

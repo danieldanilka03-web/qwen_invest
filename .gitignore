@@ -1,41 +1,28 @@
 ```
+# Build artifacts
+build/
+dist/
+
+# Dependencies
+.pub-cache/
+.dart_tool/
+packages/
+
+# Logs
+*.log
+
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Logs and temp files
-*.log
-*.tmp
-
-# Editors
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Dependencies
-node_modules/
-venv/
-.venv/
-__pycache__/
-.mypy_cache/
-.pytest_cache/
-dist/
-build/
-target/
-.gradle/
-
-# Compiled files
-*.pyc
-*.class
-*.o
-*.exe
-*.dll
-*.so
-*.a
-*.obj
-*.out
-
-# System files
+# OS
 .DS_Store
 Thumbs.db
 

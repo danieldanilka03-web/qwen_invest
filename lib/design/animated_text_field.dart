@@ -160,12 +160,8 @@ class _AnimatedTextFieldState extends State<AnimatedTextField> with SingleTicker
                         setState(() => _isFocused = true);
                         widget.onTap?.call();
                       },
-                      onTapOutside: (_) {
-                        setState(() => _isFocused = false);
-                        _controller.reverse();
                       },
                       focusNode: FocusNode(
-                        onFocusChange: (focused) {
                           setState(() => _isFocused = focused);
                           if (focused) {
                             _controller.forward();

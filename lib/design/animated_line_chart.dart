@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// Анимированный линейный график с плавным появлением линии
 /// и интерактивными точками при касании
@@ -164,8 +165,6 @@ class _AnimatedLineChartPainter extends CustomPainter {
           p2.dx - (p2.dx - p1.dx) / 3,
           p2.dy,
         );
-        final targetY = p2.dy * animationValue;
-        final adjustedP2 = Offset(p2.dx, targetY);
         final adjustedControlPoint2 = Offset(
           controlPoint2.dx,
           controlPoint2.dy * animationValue,
@@ -179,8 +178,7 @@ class _AnimatedLineChartPainter extends CustomPainter {
       }
     } else {
       for (int i = 1; i < points.length; i++) {
-        final targetY = points[i].dy * animationValue;
-        fillPath.lineTo(points[i].dx, targetY);
+        fillPath.lineTo(points[i].dx, points[i].dy * animationValue);
       }
     }
     
@@ -215,7 +213,6 @@ class _AnimatedLineChartPainter extends CustomPainter {
           p2.dx - (p2.dx - p1.dx) / 3,
           p2.dy,
         );
-        final targetY = p2.dy * animationValue;
         final adjustedControlPoint2 = Offset(
           controlPoint2.dx,
           controlPoint2.dy * animationValue,

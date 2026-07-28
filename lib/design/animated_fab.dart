@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// Анимированная плавающая кнопка действия (FAB) с эффектом расширения
 /// при нажатии и несколькими дочерними действиями
@@ -91,11 +92,11 @@ class _AnimatedFabState extends State<AnimatedFab> with SingleTickerProviderStat
               
               if (offset <= 0) return const SizedBox.shrink();
               
-              final translateY = (widget.actions.length - index) * 60 * (1 - offset.clamp(0, 1));
-              final opacity = offset.clamp(0, 1);
+              final translateY = (widget.actions.length - index) * 60.0 * (1.0 - offset.clamp(0.0, 1.0));
+              final opacity = offset.clamp(0.0, 1.0);
               
               return Transform.translate(
-                offset: Offset(0, -translateY),
+                offset: Offset(0, -translateY.toDouble()),
                 child: Opacity(
                   opacity: opacity,
                   child: child,
@@ -104,7 +105,7 @@ class _AnimatedFabState extends State<AnimatedFab> with SingleTickerProviderStat
             },
             child: _buildActionButton(action),
           );
-        }).toList().reversed.toList(),
+        }).reversed,
 
         // Основная кнопка FAB
         const SizedBox(height: 16),
