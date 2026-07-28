@@ -1,0 +1,36 @@
+```
+# Build artifacts
+build/
+dist/
+
+# Dependencies
+.pub-cache/
+.dart_tool/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Package cache
+pubspec.lock
+```
