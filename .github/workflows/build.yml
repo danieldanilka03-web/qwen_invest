@@ -34,6 +34,9 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
       
+      - name: Run Build Runner (generate Hive adapters)
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+      
       - name: Run Flutter Analyzer
         run: flutter analyze
       
@@ -89,6 +92,9 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
       
+      - name: Run Build Runner (generate Hive adapters)
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+      
       - name: Run Flutter Analyzer
         run: flutter analyze
       
@@ -122,6 +128,9 @@ jobs:
       
       - name: Get Flutter dependencies
         run: flutter pub get
+      
+      - name: Run Build Runner (generate Hive adapters)
+        run: flutter pub run build_runner build --delete-conflicting-outputs
       
       - name: Run Flutter Analyzer
         run: flutter analyze
