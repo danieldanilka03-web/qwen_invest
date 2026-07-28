@@ -105,7 +105,7 @@ class _AnimatedFabState extends State<AnimatedFab> with SingleTickerProviderStat
             },
             child: _buildActionButton(action),
           );
-        }).toList().reversed),
+        }).toList().reversed.toList()),
 
         // Основная кнопка FAB
         const SizedBox(height: 16),
