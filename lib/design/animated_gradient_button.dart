@@ -28,7 +28,6 @@ class AnimatedGradientButton extends StatefulWidget {
 }
 
 class _AnimatedGradientButtonState extends State<AnimatedGradientButton> with SingleTickerProviderStateMixin {
-  bool _isPressed = false;
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
@@ -55,19 +54,16 @@ class _AnimatedGradientButtonState extends State<AnimatedGradientButton> with Si
     return GestureDetector(
       onTapDown: (_) {
         if (!widget.isLoading) {
-          setState(() => _isPressed = true);
           _controller.forward();
         }
       },
       onTapUp: (_) {
         if (!widget.isLoading) {
-          setState(() => _isPressed = false);
           _controller.reverse();
           widget.onPressed();
         }
       },
       onTapCancel: () {
-        setState(() => _isPressed = false);
         _controller.reverse();
       },
       child: ScaleTransition(

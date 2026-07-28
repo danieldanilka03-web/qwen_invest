@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 /// Анимированный переключатель вкладок с эффектом скольжения
@@ -29,8 +30,6 @@ class AnimatedTabBar extends StatefulWidget {
 class _AnimatedTabBarState extends State<AnimatedTabBar> with SingleTickerProviderStateMixin {
   late int _currentIndex;
   late AnimationController _controller;
-  late Animation<Offset> _slideAnimation;
-  final LayerLink _layerLink = LayerLink();
 
   @override
   void initState() {
@@ -40,10 +39,6 @@ class _AnimatedTabBarState extends State<AnimatedTabBar> with SingleTickerProvid
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    _slideAnimation = Tween<Offset>(
-      begin: Offset.zero,
-      end: Offset.zero,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
   }
 
   @override

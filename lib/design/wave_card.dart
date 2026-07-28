@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter/services.dart';
 /// Анимированная карточка с эффектом "волны" при нажатии
 /// и градиентным фоном
 class WaveCard extends StatefulWidget {

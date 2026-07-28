@@ -44,10 +44,20 @@ class _AnimatedTextFieldState extends State<AnimatedTextField> with SingleTicker
   late AnimationController _controller;
   late Animation<double> _borderAnimation;
   late Animation<Color?> _colorAnimation;
+  late FocusNode _focusNode;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = FocusNode();
+    _focusNode.addListener(() {
+      setState(() => _isFocused = _focusNode.hasFocus);
+      if (_focusNode.hasFocus) {
+        _controller.forward();
+      } else {
+        _controller.reverse();
+      }
+    });
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 300),
@@ -66,6 +76,7 @@ class _AnimatedTextFieldState extends State<AnimatedTextField> with SingleTicker
 
   @override
   void dispose() {
+    _focusNode.dispose();
     widget.controller?.removeListener(_onTextChanged);
     _controller.dispose();
     super.dispose();
@@ -160,20 +171,7 @@ class _AnimatedTextFieldState extends State<AnimatedTextField> with SingleTicker
                         setState(() => _isFocused = true);
                         widget.onTap?.call();
                       },
-                      onTapOutside: (_) {
-                        setState(() => _isFocused = false);
-                        _controller.reverse();
-                      },
-                      focusNode: FocusNode(
-                        onFocusChange: (focused) {
-                          setState(() => _isFocused = focused);
-                          if (focused) {
-                            _controller.forward();
-                          } else {
-                            _controller.reverse();
-                          }
-                        },
-                      ),
+                      focusNode: _focusNode,
                     ),
                   ],
                 ),
