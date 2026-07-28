@@ -80,7 +80,7 @@ class _AnimatedFabState extends State<AnimatedFab> with SingleTickerProviderStat
       mainAxisSize: MainAxisSize.min,
       children: [
         // Дочерние действия
-        ...widget.actions.asMap().entries.map((entry) {
+        ...(widget.actions.asMap().entries.map((entry) {
           final index = entry.key;
           final action = entry.value;
           return AnimatedBuilder(
@@ -96,7 +96,7 @@ class _AnimatedFabState extends State<AnimatedFab> with SingleTickerProviderStat
               final opacity = offset.clamp(0.0, 1.0);
               
               return Transform.translate(
-                offset: Offset(0, -translateY.toDouble()),
+                offset: Offset(0, -translateY),
                 child: Opacity(
                   opacity: opacity,
                   child: child,
@@ -105,7 +105,7 @@ class _AnimatedFabState extends State<AnimatedFab> with SingleTickerProviderStat
             },
             child: _buildActionButton(action),
           );
-        }).reversed,
+        }).toList().reversed),
 
         // Основная кнопка FAB
         const SizedBox(height: 16),

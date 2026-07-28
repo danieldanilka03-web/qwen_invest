@@ -2,35 +2,51 @@
 # Dependencies
 .dart_tool/
 .packages
-pubspec.lock
 
 # Build outputs
 build/
-*.g.dart
 
-# Logs
+# Logs and temp files
 *.log
+*.tmp
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# IDE
-.idea/
+# Editors
 .vscode/
+.idea/
 *.swp
 *.swo
 
-# OS
+# OS generated files
 .DS_Store
 Thumbs.db
 
-# Coverage
+# Coverage reports
 coverage/
-*.coverage
+htmlcov/
+.coverage
 
-# Temporary files
-*.tmp
-*.temp
+# Distribution / packaging
+dist/
+*.tar.gz
+*.zip
+
+# Compiled Binary files
+*.class
+*.o
+*.obj
+*.out
+*.dll
+*.so
+*.a
+*.exe
+
+# Testing
+*.test
+*.tests
+test-results/
 ```
