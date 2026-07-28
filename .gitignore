@@ -1,4 +1,36 @@
 ```
-# CI/CD
-.github/
+# Dependencies
+.dart_tool/
+.packages
+pubspec.lock
+
+# Build outputs
+build/
+*.g.dart
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+*.coverage
+
+# Temporary files
+*.tmp
+*.temp
 ```
